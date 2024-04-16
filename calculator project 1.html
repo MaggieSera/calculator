@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/de3608304c.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: #877BE3;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 26px;
+        }
+        #calculator{
+            background-color: #9BA7D5;
+            border:none;
+            border-radius:5px;
+            box-shadow: 2px 2px 3px #5A5EA5;
+            backdrop-filter: blur(5px);
+            height:100%;
+        }
+        #keys{
+            background-color: #aab0c9;
+            color:white;
+            margin:10px;
+            border-radius:5px;
+        }
+        button{
+            font-size:33px;
+            border:none;
+            font-weight: bold;
+            background: none;
+            margin:30px;
+            padding:12px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        h2{
+            text-align: center;
+            color:white;
+            font-weight: bold;
+        }
+        input[type="text"]{
+            width:95%;
+            font-size:35px;
+            text-align: right;
+            margin-left:3px;
+        }
+        .key{
+            display:block;
+            background-color: #5A5EA5;
+            width:20%;
+            text-align: center;
+            margin-top:-138%;
+            margin-left:80%;
+            border-radius:5px;
+            color:#5A5EA5;
+        }
+        .ke{
+            background-color:#877BE3;
+            color:rgb(12, 12, 12); 
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <i class="fa-solid fa-toggle-on" style="color:white;"></i>
+        <h2>Calculator</h2>
+        <input type="text" placeholder="0" id="display" readonly>
+         <div id="keys">
+       <button onclick="clearBtn()">C</button>
+       <button onclick="append()" >00</button>
+       <button onclick="per()">%</button><br>
+       <button onclick="append('7')">7</button>
+       <button onclick="append('8')">8</button>
+       <button onclick="append('9')">9</button><br>
+       <button onclick="append('4')">4</button>
+       <button onclick="append('5')">5</button>
+       <button onclick="append('6')">6</button><br>
+       <button onclick="append('1')">1</button>
+       <button onclick="append('2')">2</button>
+       <button onclick="append('3')">3</button><br>
+       <button onclick="append('.')">.</button>
+       <button onclick="append('0')">0</button>
+       <button onclick="append(',')">,</button><br>
+        </div>
+        <div class="key">
+            <button onclick="append('/')">/</button><br>
+            <button onclick="append('*')">*</button><br>
+            <button onclick="append('-')">-</button><br>
+            <button onclick="append('+')">+</button><br>
+            <div class="ke"><button onclick="calculate()">=</button><br>
+            </div>
+        </div>
+    </div>
+    <script>
+        const display=document.getElementById('display');
+function append(input){
+    display.value += input;
+}
+function clearBtn(){
+    display.value ="";
+}
+
+function calculate(){
+    display.value = eval(display.value);
+
+}
+function per(){
+  display.value=eval(display.value)/100;
+}
+    </script>
+</body>
+</html>
